@@ -1,0 +1,57 @@
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Style the header */
+  header {
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+  }
+  
+  /* Container for flexboxes */
+  section {
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+  /* Style the content */
+  article {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    height: 500px;
+    background-color: lightblue;
+    
+  }
+  
+  /* Style the footer */
+  footer {
+    background-color: black;
+    padding: 5px;
+    text-align: center;
+    color: white;
+  } 
+  .textCenter{
+    text-align: center;
+    font-size: 20px;
+    color: darkcyan;
+  }
+  .textCenter_Black{
+    text-align: center;
+    font-size: 15px;
+  }
+  /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+  @media (max-width: 600px) {
+    section {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+  }

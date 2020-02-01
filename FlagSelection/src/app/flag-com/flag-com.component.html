@@ -1,0 +1,35 @@
+<div class="row" class="divItem">
+    <div class="column">
+        <h2>Step 1</h2>
+        <p>Select a Continent</p>
+        <input list="continent" name="myContinent" placeholder="Start your search by typing" size="30" height="50" [(ngModel)]="selectedValue" (change)="onSelect($event.target.value)">
+        <datalist id="continent">
+            <option  style="background-color: aquamarine;"  *ngFor="let event of events" [value]="event.continent">
+        </datalist>
+        <br><br>
+        <span *ngIf="DisplayCountry != null">You selected <br><br>{{this.DisplayCountry}}</span>
+    </div>
+      
+    <div class="column" *ngIf="selConValue">
+        <h2>Step 2</h2>
+        <label>Now, Select a Country</label><br>
+        <div class="multiselect" class="divItem">
+            <div class="selectBox" (click)="showCheckboxes()">
+              <select >
+                <option style="background-color: aquamarine;"></option>
+              </select>
+              <div class="overSelect"></div>
+            </div>
+            <div id="checkboxes" class="divItemleft" style="background-color: aquamarine;">
+               <label *ngFor="let selCounLists of selCounList">
+                   <input type="checkbox" id="selCounLists.flag" (change)="onSelectCon(selCounLists.flag, $event.target.checked)"/>{{selCounLists.name}}</label>
+            </div>
+          </div>
+    </div>
+
+    <div class="column" *ngIf="this.selectedValueCountry != ''  && selectedValue">
+      <h2>Step 3</h2>
+        {{this.selectedValueCountry}}<br><br>
+        <button type="reset" class="btn-primary" (click)="reset()">Clear</button>
+    </div>
+</div>
